@@ -1,8 +1,9 @@
 # Bayscraper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bayscraper`. To experiment with that code, run `bin/console` for an interactive prompt.
+**URGENT TODO: Sort out my bloody namespacing** 
 
-TODO: Delete this and the text above, and describe your gem
+This gem scrapes UK eBay given some search terms and search exclusion terms.
+It is designed for obscure items which only occasionally appear within your price range.
 
 ## Installation
 
@@ -22,7 +23,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Bayscraper::Search.new('search terms', 'exclusion terms', min_price,
+max_price).search
+TODO
 
 ## Development
 
@@ -39,3 +42,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+## TODO
+
+* Add specs
+* Add item name (doh!)
+* Get delegator working

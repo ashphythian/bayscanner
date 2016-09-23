@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = "bayscraper"
   spec.version       = Bayscraper::VERSION
   spec.authors       = ["Ash Phythian"]
-  spec.email         = ["ashley.phythian@onthebeach.co.uk"]
+  spec.email         = ["ashley.phythian@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = "This gem scrapes ebay for the cheapest item given a description"
+  spec.description   = "To be used for obscure items which are rarely cheap"
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
@@ -27,7 +27,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.12"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
+  # spec.add_runtime_dependency 'nokogiri'
+  # spec.add_runtime_dependency 'open-uri'
+  # spec.add_runtime_dependency 'money'
+
+  spec.add_development_dependency 'bundler', '~> 1.12'
+  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'rspec', '~> 3.0'
+  # spec.add_development_dependency 'pry'
+  # spec.add_development_dependency 'awesome-print'
 end

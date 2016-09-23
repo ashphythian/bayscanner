@@ -1,5 +1,8 @@
-require "bayscraper/version"
+require 'bayscraper/all.rb'
 
 module Bayscraper
-  # Your code goes here...
+  extend Forwardable
+  extend self
+
+  def_delegators Bayscraper::Search, :search
 end
