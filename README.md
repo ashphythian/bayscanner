@@ -1,7 +1,5 @@
 # Bayscraper
 
-**URGENT TODO: Sort out my bloody namespacing** 
-
 This gem scrapes UK eBay given some search terms and search exclusion terms.
 It is designed for obscure items which only occasionally appear within your price range.
 
@@ -23,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-Bayscraper::Search.new('search terms', 'exclusion terms', min_price,
+Bayscraper.search('search terms', 'exclusion terms', min_price, max_price)
 max_price).search
 TODO
 
@@ -46,4 +44,5 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 * Add specs
 * Add item name (doh!)
-* Get delegator working
+* Deal with items that have auction + BIN
+* Use price range as actual filter

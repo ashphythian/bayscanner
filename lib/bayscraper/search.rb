@@ -16,7 +16,7 @@ module Bayscraper
       @max_price = max_price
     end
 
-    def self.search
+    def self.search(search_terms, exclusions, min_price, max_price)
       new(search_terms, exclusions, min_price, max_price).search
     end
 
@@ -42,7 +42,7 @@ module Bayscraper
     end
 
     def ebay_url
-      "http://www.ebay.co.uk/sch/?_nkw=#{search_terms} #{search_exclusions}&_sop=15"
+      "http://www.ebay.co.uk/sch/?_nkw=#{search_terms} #{search_exclusions}&_sop=15&_udlo=#{min_price}&_udhi=#{max_price}"
     end
 
     def search_exclusions
