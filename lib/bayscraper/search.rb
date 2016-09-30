@@ -21,12 +21,13 @@ module Bayscraper
     end
 
     def search
-      if !items_within_price_range.empty?
-        puts "The cheapest is £#{cheapest[:total_price]} (inc. postage).\n"
-        puts "The link is #{cheapest[:link]}."
-      else
-        puts "There aren't any."
-      end
+       cheapest[:total_price]
+      # if !items_within_price_range.empty?
+      #   puts "The cheapest is £#{cheapest[:total_price]} (inc. postage).\n"
+      #   puts "The link is #{cheapest[:link]}."
+      # else
+      #   puts "There aren't any."
+      # end
     end
 
     private

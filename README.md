@@ -20,10 +20,9 @@ Or install it yourself as:
     $ gem install bayscraper
 
 ## Usage
-
+```
 Bayscraper.search('search terms', 'exclusion terms', min_price, max_price)
-max_price).search
-TODO
+```
 
 ## Development
 

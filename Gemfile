@@ -7,5 +7,8 @@ gem 'pry'
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'awesome_print'
+gem 'httparty'
+gem 'rest-client'
+gem 'json'
 
 gemspec

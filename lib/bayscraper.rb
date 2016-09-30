@@ -1,4 +1,4 @@
-require 'bayscraper/all.rb'
+require 'bayscraper/all'
 
 module Bayscraper
   extend Forwardable
