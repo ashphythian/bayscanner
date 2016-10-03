@@ -14,6 +14,10 @@ module Bayscraper
       @keywords = { query: { keywords: keywords } }
     end
 
+    def self.price_order(keywords)
+      new(keywords).price_order
+    end
+
     def price_order
       formatted_results.sort_by { |x| x[:total_price] }
     end
@@ -22,12 +26,12 @@ module Bayscraper
       items.map do |item|
         item = {
           title: title(item),
+          total_price: total_price(item),
           link: link(item),
           image: image(item),
           end_time: end_time(item),
           current_price: current_price(item),
-          shipping_cost: shipping_cost(item),
-          total_price: total_cost(item)
+          shipping_cost: shipping_cost(item)
         }
       end
     end
@@ -36,7 +40,7 @@ module Bayscraper
       item['title']
     end
 
-    def total_cost(item)
+    def total_price(item)
       current_price(item) + shipping_cost(item)
     end
 
