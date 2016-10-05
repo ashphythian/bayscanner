@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://svcs.ebay.com/services/search/FindingService/v1?GLOBAL-ID=EBAY-GB&OPERATION-NAME=findItemsByKeywords&RESPONSE-DATA-FORMAT=XML&REST-PAYLOADpaginationInput.entriesPerPage=6&SECURITY-APPNAME=AshPhyth-bayscrap-PRD-f2f5e2e0d-5d46c280&SERVICE-VERSION=1.0.0&keywords=akasdhasjkdhasjkdhasdjkashd&siteid=3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - svcs.ebay.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Guid:
+      - 15794bf9-1690-a7ea-0622-28c2c7a23bb2
+      Server:
+      - Apache-Coyote/1.1
+      X-Ebay-Request-Id:
+      - 15794bf9-1690-a7ea-0622-28c2c7a23bb2!services.search.FindingService.v1!10.126.160.98!fndngesb[]
+      X-Ebay-Soa-Global-Id:
+      - EBAY-GB
+      X-Ebay-Soa-Locale-List:
+      - en-GB_GB
+      X-Ebay-Soa-Message-Protocol:
+      - NONE
+      X-Ebay-Soa-Operation-Name:
+      - findItemsByKeywords
+      X-Ebay-Soa-Request-Id:
+      - 15794bf9-1470-a5f1-0572-3172fe5f3223
+      X-Ebay-Soa-Response-Data-Format:
+      - XML
+      X-Ebay-Soa-Service-Metrics:
+      - '149423845'
+      X-Ebay-Soa-Service-Name:
+      - "{http://www.ebay.com/marketplace/search/v1/services}FindingService"
+      X-Ebay-Soa-Service-Version:
+      - 1.13.0
+      Date:
+      - Wed, 05 Oct 2016 12:09:25 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: <?xml version='1.0' encoding='UTF-8'?><findItemsByKeywordsResponse xmlns="http://www.ebay.com/marketplace/search/v1/services"><ack>Success</ack><version>1.13.0</version><timestamp>2016-10-05T12:09:25.219Z</timestamp><searchResult
+        count="0"/><paginationOutput><pageNumber>0</pageNumber><entriesPerPage>100</entriesPerPage><totalPages>0</totalPages><totalEntries>0</totalEntries></paginationOutput><itemSearchURL>http://www.ebay.co.uk/sch/i.html?_nkw=akasdhasjkdhasjkdhasdjkashd&amp;_ddo=1&amp;_ipg=100&amp;_pgn=1</itemSearchURL></findItemsByKeywordsResponse>
+    http_version: 
+  recorded_at: Wed, 05 Oct 2016 12:09:25 GMT
+recorded_with: VCR 3.0.3

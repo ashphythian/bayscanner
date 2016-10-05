@@ -10,5 +10,7 @@ gem 'awesome_print'
 gem 'httparty'
 gem 'rest-client'
 gem 'json'
+gem 'webmock'
+gem 'vcr'
 
 gemspec

@@ -26,7 +26,7 @@ module Bayscraper
       items.map do |item|
         item = {
           title: title(item),
-          total_price: total_price(item),
+          total_price: total_price(item).round(2),
           link: link(item),
           image: image(item),
           end_time: end_time(item),
