@@ -2,15 +2,15 @@ require 'spec_helper'
 
 module Bayscraper
   describe Ebay do
-    describe '#price_order' do
+    describe '#final_results' do
       context 'there are results' do
-        let(:search_terms) { 'zvex instant junky -power' }
-
         subject do
           VCR.use_cassette('ebay_api_results') do
-            Bayscraper::Ebay.new(search_terms).price_order 
+            Bayscraper::Ebay.new(search_terms).final_results
           end
         end
+
+        let(:search_terms) { 'zvex instant junky -power' }
 
         it 'returns an array of hashes' do
           expect(subject.class).to eql(Array)
@@ -40,14 +40,14 @@ module Bayscraper
         end
       end
 
-      context '' do
-        let(:search_terms_no_results) { 'Barbie & Ken\'s Underwater Toaster' }
-
+      context 'there are no results' do
         subject do
           VCR.use_cassette('ebay_api_no_results') do
-            Bayscraper::Ebay.new(search_terms_no_results).price_order 
+            Bayscraper::Ebay.new(search_terms_no_results).final_results 
           end
         end
+
+        let(:search_terms_no_results) { "Barbie & Ken's Underwater Toaster" }
 
         it 'returns an empty array' do
           expect(subject.class).to eql(Array)

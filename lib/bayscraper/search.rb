@@ -1,8 +1,4 @@
 require 'nokogiri'
-require 'pry'
-require 'pry-rails'
-require 'pry-byebug'
-require 'awesome_print'
 
 module Bayscraper
   class Search
@@ -16,13 +12,15 @@ module Bayscraper
       @max_price = max_price
     end
 
-    def self.search(search_terms, exclusions, min_price, max_price)
+    def self.search(search_terms, exclusions='', min_price=0, max_price=999999)
       new(search_terms, exclusions, min_price, max_price).search
     end
 
     def search
-      cheapest
+      items_within_price_range
     end
+
+    private
 
     def scraping_success?
       prices.length == postages.length &&
@@ -30,15 +28,13 @@ module Bayscraper
         prices.length > 0
     end
 
-    private
-
     def cheapest
       items_within_price_range[0]
     end
 
     def items_within_price_range
-      items_sorted.select do |price|
-        price[:total_price].between?(min_price, max_price)
+      items_sorted.select do |item|
+        item[:total_price].between?(min_price, max_price)
       end
     end
 

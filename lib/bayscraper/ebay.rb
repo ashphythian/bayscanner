@@ -1,20 +1,34 @@
 require 'httparty'
 require 'yaml'
-require 'pry'
 
 module Bayscraper
   class Ebay
     include HTTParty
-    attr_reader :keywords
+    attr_reader :keywords, :exclusions, :min_price, :max_price
 
     base_uri 'http://svcs.ebay.com'
 
     def initialize(keywords, exclusions='', min_price=0, max_price=999999)
-      @keywords = { query: { keywords: keywords } }
+      @keywords = keywords
+      @exclusions = exclusions
+      @min_price = min_price
+      @max_price = max_price
     end
 
-    def self.price_order(keywords)
-      new(keywords).price_order
+    def self.final_results(keywords, exclusions='', min_price=0, max_price=999999)
+      new(keywords, exclusions, min_price, max_price).final_results
+    end
+
+    def final_results
+      items_within_price_range
+    end
+
+    private
+
+    def items_within_price_range
+      price_order.select do |item|
+        item[:total_price].between?(min_price, max_price)
+      end
     end
 
     def price_order
@@ -24,8 +38,6 @@ module Bayscraper
         []
       end
     end
-
-    private
 
     def formatted_results
       items.map do |item|
@@ -78,7 +90,15 @@ module Bayscraper
     end
 
     def results
-      self.class.get(path, keywords)
+      self.class.get(path, search_terms)
+    end
+
+    def search_terms
+      { query: { keywords: keywords + search_exclusions } }
+    end
+
+    def search_exclusions
+      ' ' + exclusions.split(' ').map { |e| '-' + e }.join(' ')
     end
 
     def path
