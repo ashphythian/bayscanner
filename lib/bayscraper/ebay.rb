@@ -1,6 +1,4 @@
 require 'httparty'
-require 'pry'
-require 'json'
 require 'yaml'
 
 module Bayscraper
@@ -19,8 +17,14 @@ module Bayscraper
     end
 
     def price_order
-      formatted_results.sort_by { |x| x[:total_price] }
+      if !items.nil?
+        formatted_results.sort_by { |x| x[:total_price] }
+      else
+        []
+      end
     end
+
+    private
 
     def formatted_results
       items.map do |item|

@@ -30,7 +30,7 @@ module Bayscraper
         prices.length > 0
     end
 
-    # private
+    private
 
     def cheapest
       items_within_price_range[0]

@@ -2,6 +2,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'bayscraper'
 require 'webmock/rspec'
 require 'vcr'
+require 'yaml'
 
 VCR.configure do |vcr|
   vcr.cassette_library_dir=   'spec/fixtures/cassettes'

@@ -28,7 +28,7 @@ module Bayscraper
       end
 
       context 'There are no search results' do
-        let(:search_terms) { 'thisproductsurelydoesnotexist' }
+        let(:search_terms) { 'Proven Homeopathic Recipes' }
 
         it 'returns an empty hash' do
           VCR.use_cassette('empty_scraping_results') do
