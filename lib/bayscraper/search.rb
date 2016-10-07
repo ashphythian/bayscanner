@@ -9,7 +9,7 @@ module Bayscraper
     attr_reader :search_terms, :exclusions, :min_price, :max_price
     private :search_terms, :exclusions, :min_price, :max_price
 
-    def initialize(search_terms, exclusions, min_price, max_price)
+    def initialize(search_terms, exclusions='', min_price=0, max_price=999999)
       @search_terms = search_terms
       @exclusions = exclusions
       @min_price = min_price

@@ -1,5 +1,6 @@
 require 'httparty'
 require 'yaml'
+require 'pry'
 
 module Bayscraper
   class Ebay
@@ -8,7 +9,7 @@ module Bayscraper
 
     base_uri 'http://svcs.ebay.com'
 
-    def initialize(keywords)
+    def initialize(keywords, exclusions='', min_price=0, max_price=999999)
       @keywords = { query: { keywords: keywords } }
     end
 
@@ -53,7 +54,11 @@ module Bayscraper
     end
 
     def shipping_cost(item)
-      item['shippingInfo']['shippingServiceCost']['__content__'].to_f
+      if item['shippingInfo']['shippingType'] == 'FreePickup'
+        0.0
+      else
+        item['shippingInfo']['shippingServiceCost']['__content__'].to_f
+      end
     end
 
     def link(item)
@@ -61,7 +66,7 @@ module Bayscraper
     end
 
     def image(item)
-      item['galleryUrl']
+      item['galleryURL']
     end
 
     def end_time(item)
