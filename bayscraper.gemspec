@@ -36,4 +36,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   # spec.add_development_dependency 'pry'
   # spec.add_development_dependency 'awesome-print'
+
+  spec.add_runtime_dependency 'nokogiri'
+  spec.add_runtime_dependency 'httparty'
+  spec.add_runtime_dependency 'json'
+  spec.add_runtime_dependency 'webmock'
+  spec.add_runtime_dependency 'vcr'
 end
