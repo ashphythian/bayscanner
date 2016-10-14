@@ -14,9 +14,9 @@ module Bayscraper
           VCR.use_cassette('scraping_results') do
             Bayscraper::Search.new(
               search_terms,
-              exclusions,
-              min_price,
-              max_price).search
+              exclusions: exclusions,
+              min_price: min_price,
+              max_price: max_price).search
           end
         end
 
@@ -45,9 +45,9 @@ module Bayscraper
           VCR.use_cassette('empty_scraping_results') do
             Bayscraper::Search.new(
               search_terms,
-              exclusions, 
-              min_price,
-              max_price).search
+              exclusions: exclusions,
+              min_price: min_price,
+              max_price: max_price).search
           end
         end
 

@@ -1,5 +1,6 @@
 require 'bayscraper/version'
 require 'bayscraper/search'
 require 'bayscraper/ebay'
+require 'bayscraper/configuration'
 require 'open-uri'
 require 'forwardable'

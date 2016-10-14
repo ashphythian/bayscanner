@@ -2,18 +2,18 @@ require 'nokogiri'
 
 module Bayscraper
   class Search
-    attr_reader :search_terms, :exclusions, :min_price, :max_price
-    private :search_terms, :exclusions, :min_price, :max_price
+    attr_reader :keywords, :exclusions, :min_price, :max_price
+    private :keywords, :exclusions, :min_price, :max_price
 
-    def initialize(search_terms, exclusions='', min_price=0, max_price=999999)
-      @search_terms = search_terms
+    def initialize(keywords, exclusions: '', min_price: 0, max_price: 999999)
+      @keywords = keywords
       @exclusions = exclusions
       @min_price = min_price
       @max_price = max_price
     end
 
-    def self.search(search_terms, exclusions='', min_price=0, max_price=999999)
-      new(search_terms, exclusions, min_price, max_price).search
+    def self.search(keywords, exclusions: '', min_price: 0, max_price: 999999)
+      new(keywords, exclusions, min_price, max_price).search
     end
 
     def search
@@ -116,7 +116,7 @@ module Bayscraper
     end
 
     def ebay_url
-      "http://www.ebay.co.uk/sch/?_nkw=#{search_terms} #{search_exclusions}&_sop=15&_udlo=#{min_price}&_udhi=#{max_price}"
+      "http://www.ebay.co.uk/sch/?_nkw=#{keywords} #{search_exclusions}&_sop=15&_udlo=#{min_price}&_udhi=#{max_price}"
     end
 
     def search_exclusions

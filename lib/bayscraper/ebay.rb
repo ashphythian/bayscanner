@@ -4,19 +4,37 @@ require 'yaml'
 module Bayscraper
   class Ebay
     include HTTParty
+
     attr_reader :keywords, :exclusions, :min_price, :max_price
+    private :keywords, :exclusions, :min_price, :max_price
 
     base_uri 'http://svcs.ebay.com'
 
-    def initialize(keywords, exclusions='', min_price=0, max_price=999999)
+    APP_ID = YAML.load_file('config/application.yml')['app_id']
+
+    def initialize(
+      keywords,
+      exclusions: '',
+      min_price: 0,
+      max_price: 999999
+    )
       @keywords = keywords
       @exclusions = exclusions
       @min_price = min_price
       @max_price = max_price
     end
 
-    def self.final_results(keywords, exclusions='', min_price=0, max_price=999999)
-      new(keywords, exclusions, min_price, max_price).final_results
+    def self.final_results(
+      keywords,
+      exclusions: '',
+      min_price: 0,
+      max_price: 999999
+    )
+      new(
+        keywords,
+        exclusions: exclusions,
+        min_price: min_price,
+        max_price: max_price).final_results
     end
 
     def final_results
@@ -116,11 +134,7 @@ module Bayscraper
     end
 
     def app_id
-      config['app_id']
-    end
-
-    def config
-      YAML.load_file('config/application.yml')
+      Configuration.instance.app_id || APP_ID
     end
   end
 end

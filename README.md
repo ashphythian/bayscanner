@@ -3,6 +3,11 @@
 This gem scrapes UK eBay given some search terms and search exclusion terms.
 It is designed for obscure items which only occasionally appear within your price range.
 
+It has two modes. One scrapes the site, and the other uses eBay's API.
+
+The former can be used freely, however the latter requires an app_id from eBay's
+developer site.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -20,8 +25,16 @@ Or install it yourself as:
     $ gem install bayscraper
 
 ## Usage
+In both, the search terms are the only required parameter.
+
+To scrape the site:
 ```
-Bayscraper.search('search terms', 'exclusion terms', min_price, max_price)
+Bayscraper.search('search terms', exclusions: 'exclusion terms', min_price: min_price, min_price: max_price)
+```
+
+To use the API:
+```
+Bayscraper.final_results('search terms', exclusions: 'exclusion terms', min_price: min_price, max_price: max_price),
 ```
 
 ## Development
@@ -41,7 +54,6 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## TODO
 
-* Add specs
-* Add item name (doh!)
-* Deal with items that have auction + BIN
-* Use price range as actual filter
+* Make namespacing clearer
+* Sort out class input code smell (too many)
+* Deal with items that have auction + BIN and with postage 'courier'
