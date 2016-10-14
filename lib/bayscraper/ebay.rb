@@ -10,8 +10,6 @@ module Bayscraper
 
     base_uri 'http://svcs.ebay.com'
 
-    APP_ID = YAML.load_file('config/application.yml')['app_id']
-
     def initialize(
       keywords,
       exclusions: '',
@@ -134,7 +132,11 @@ module Bayscraper
     end
 
     def app_id
-      Configuration.instance.app_id || APP_ID
+      Configuration.instance.app_id || local_app_id
+    end
+
+    def local_app_id
+      YAML.load_file('config/application.yml')['app_id']
     end
   end
 end
