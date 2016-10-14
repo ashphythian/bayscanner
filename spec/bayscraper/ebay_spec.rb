@@ -3,6 +3,12 @@ require 'spec_helper'
 module Bayscraper
   describe Ebay do
     describe '#final_results' do
+      let(:app_id) { 'app_id' }
+
+      before do
+        stub_const("Bayscraper::Ebay::APP_ID", app_id)
+      end
+
       context 'there are results' do
         subject do
           VCR.use_cassette('ebay_api_results') do

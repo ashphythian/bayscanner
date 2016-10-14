@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://svcs.ebay.com/services/search/FindingService/v1?GLOBAL-ID=EBAY-GB&OPERATION-NAME=findItemsByKeywords&RESPONSE-DATA-FORMAT=XML&REST-PAYLOADpaginationInput.entriesPerPage=6&SECURITY-APPNAME=AshPhyth-bayscrap-PRD-f2f5e2e0d-5d46c280&SERVICE-VERSION=1.0.0&keywords=Barbie%20%26%20Ken%27s%20Underwater%20Toaster%20&siteid=3
+    uri: http://svcs.ebay.com/services/search/FindingService/v1?GLOBAL-ID=EBAY-GB&OPERATION-NAME=findItemsByKeywords&RESPONSE-DATA-FORMAT=XML&REST-PAYLOADpaginationInput.entriesPerPage=6&SECURITY-APPNAME=app_id&SERVICE-VERSION=1.0.0&keywords=Barbie%20%26%20Ken%27s%20Underwater%20Toaster%20&siteid=3
     body:
       encoding: US-ASCII
       string: ''

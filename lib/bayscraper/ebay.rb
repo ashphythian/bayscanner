@@ -108,7 +108,7 @@ module Bayscraper
     end
 
     def results
-      self.class.get(path, search_terms)
+      @results ||= self.class.get(path, search_terms)
     end
 
     def search_terms
